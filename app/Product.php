@@ -9,6 +9,11 @@ class Product extends Model {
 	protected $fillable =[
 		'name',
 		'slug',
+		"discription",
+		"price",
+		"catagory",
+		"brand",
+		"imgpath"
 	];
 
 }

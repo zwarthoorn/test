@@ -21,7 +21,7 @@
                                             <td>{!! $product['discription'] !!}</td>
                                              <td><img src="/{{$product['imgpath']}}" alt="" height="42" width="42"></td>
                                             <td>
-                                                {!! Form::open(['method'=>"DELETE", 'url'=>'admin/brand/']) !!}
+                                                {!! Form::open(['method'=>"DELETE", 'url'=>'admin/product/'.$product['id']]) !!}
                                                 <button>delete</button>
                                                 {!! Form::close()!!}
                                             </td>    

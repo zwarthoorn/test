@@ -14,7 +14,7 @@ use App\User;
 
 
 Route::get('/', 'MainController@index');
-
+Route::get('/catagory/{slug}', 'MainController@catagory');
 
 Route::group(['middleware'=>'authAdmin'],function()
 {
