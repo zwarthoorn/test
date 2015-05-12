@@ -154,8 +154,9 @@
 					<div class="left-sidebar">
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							@foreach($allC as $value)
+							
 							<div class="panel panel-default">
+								@foreach($allC as $value)
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="/catagory/{{$value['slug']}}">
@@ -165,6 +166,7 @@
 									</h4>
 								</div>
 								@endforeach
+							</div>
 						</div><!--/category-products-->
 					
 						<div class="brands_products"><!--brands_products-->
@@ -204,7 +206,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
+											<img src="images/test/Bruingevlochtenarmband.jpg" alt="" />
 											<h2>$56</h2>
 											<p>Easy Polo Black Edition</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
