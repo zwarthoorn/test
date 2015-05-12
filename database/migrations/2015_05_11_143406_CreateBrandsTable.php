@@ -19,7 +19,7 @@ class CreateBrandsTable extends Migration {
 			$table->string('slug');
 			$table->timestamps();
 		});
-	}
+	
 	}
 
 	/**
