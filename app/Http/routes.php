@@ -26,6 +26,7 @@ Route::group(['middleware'=>'authAdmin'],function()
 	Route::post('admin/members/sendEmail','MembersController@fullEmailSend');
 	Route::get('admin/logout','Test2Controller@logout');
 	Route::resource('admin/catagory', 'CatagoryController');
+	Route::resource('admin/brand', 'BrandController');
 });
 
 	Route::get('rankcheck',function ()
