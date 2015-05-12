@@ -27,6 +27,7 @@ Route::group(['middleware'=>'authAdmin'],function()
 	Route::get('admin/logout','Test2Controller@logout');
 	Route::resource('admin/catagory', 'CatagoryController');
 	Route::resource('admin/brand', 'BrandController');
+	Route::resource('admin/product', 'ProductController');
 });
 
 	Route::get('rankcheck',function ()

@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Brand;
+use App\Catagory;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateProductForm;
 
 class ProductController extends Controller {
 
@@ -14,7 +16,7 @@ class ProductController extends Controller {
 	 */
 	public function index()
 	{
-		
+		return view('adminViews.products');
 	}
 
 	/**
@@ -24,7 +26,9 @@ class ProductController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$catagory = Catagory::all()->toArray();
+		$brands = Brand::all()->toArray();
+		return view('adminViews.createproduct',['cat'=>$catagory,'brands'=>$brands]);
 	}
 
 	/**
@@ -32,9 +36,9 @@ class ProductController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateProductForm $request)
 	{
-		//
+		dd('yow');
 	}
 
 	/**

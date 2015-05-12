@@ -158,7 +158,7 @@
                             <a href="/admin/catagory"><i class="fa fa-edit fa-fw"></i>Catagorie</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Products</a>
+                            <a href="/admin/product"><i class="fa fa-wrench fa-fw"></i> Products</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
