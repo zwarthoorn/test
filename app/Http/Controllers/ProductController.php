@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Brand;
 use App\Catagory;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateProductForm;
 
@@ -16,7 +17,8 @@ class ProductController extends Controller {
 	 */
 	public function index()
 	{
-		return view('adminViews.products');
+		$products = Product::all()->toArray();
+		return view('adminViews.products',compact('products'));
 	}
 
 	/**
@@ -38,7 +40,20 @@ class ProductController extends Controller {
 	 */
 	public function store(CreateProductForm $request)
 	{
-		dd('yow');
+
+		$request->file('image')->move(public_path('images/products'), $request->get('slug').".".$request->file('image')->getClientOriginalExtension());
+		
+		$filepath = "images/products/".$request->get('slug').".".$request->file('image')->getClientOriginalExtension();
+				Product::create([
+			'name'=>$request->get('name'),
+			'slug'=>$request->get('slug'),
+			'discription'=>$request->get('discription'),
+			'imgpath'=>$filepath,
+			'price'=>$request->get('price'),
+			'catagory_id'=>$request->get('catagory'),
+			'brand'=>$request->get('brand')
+			]);
+		return redirect('admin/product');
 	}
 
 	/**

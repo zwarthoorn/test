@@ -4,7 +4,8 @@
 @section('content')
 	  <div class="panel-body">
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-    <form action="/admin/product" method='post'>   
+    {!! Form::open(array('url' => 'admin/product', 'files' => true)) !!}
+   
     <div class='form-group'>
         <input class="form-control" id="name" name='name' type="text" placeholder="catagory name">
         
@@ -19,7 +20,7 @@
         <textarea name="discription" id="discription" cols="30" rows="10" placeholder='discription of product'></textarea>
     </div>
     <div class='form-group'>
-        {!! Form::file('image', null) !!}
+        <input type="file" name='image' id='image' class='form-control'>
     </div>
     <div class='form-group'>
         <input class="form-control" id="price" name='price' type="number" >
@@ -41,15 +42,15 @@
 
     <input type="hidden" name="_token" value='{{ csrf_token() }}' />
     <button>send</button>
-  </form>
+  {!!Form::close()!!}
   <script>tinymce.init({selector:'textarea'});</script>
   <script>
   var typeover = document.getElementById('name')
   var slug = document.getElementById('slug')
 
   typeover.onkeyup = function () {
-    
-        slug.value = typeover.value;
+        var valueoftype = typeover.value.replace(/\s/g, '')
+        slug.value = valueoftype;
     
   }
 </script>

@@ -27,9 +27,7 @@ class CreateProductForm extends Request {
 			"slug" => 'required',
 			"discription" => 'required',
 			"price" => 'required|integer',
-			"catagory" => 'required',
-			"brand" => 'required',
-			'image'=> 'required|mimes:jpg,jpeg'
+			'image'=> 'required'
 		];
 	}
 

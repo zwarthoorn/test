@@ -8,17 +8,18 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Slug</th>
+                                            <th>discription</th>
+                                            <th>foto</th>
                                             <th>delete</th>
                                             <th>edit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                     
+                                     @foreach($products as $product)
                                          <tr class="odd gradeX">
-                                            <td>test</td>
-                                            <td>test</td>
-
+                                            <td>{{$product['name']}}</td>
+                                            <td>{!! $product['discription'] !!}</td>
+                                             <td><img src="/{{$product['imgpath']}}" alt="" height="42" width="42"></td>
                                             <td>
                                                 {!! Form::open(['method'=>"DELETE", 'url'=>'admin/brand/']) !!}
                                                 <button>delete</button>
@@ -30,6 +31,7 @@
                                                  </form>
                                             </td>
                                         </tr>
+                                        @endforeach
                                 
                                       
                                        
