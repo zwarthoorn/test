@@ -120,7 +120,7 @@
                                         <li><a href="shop.html" class="active">Products</a></li>
 										<li><a href="product-details.html">Product Details</a></li> 
 										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
+										<li><a href="/cart">Cart</a></li> 
 										<li><a href="login.html">Login</a></li> 
                                     </ul>
                                 </li> 

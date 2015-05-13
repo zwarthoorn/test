@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Catagory;
 use App\Product;
+use App\Cart;
 use Illuminate\Support\Facades\Request;
 
 use Auth;
@@ -39,11 +40,37 @@ class MainController extends Controller {
 	public function putCart($slug)
 	{
 		if (Auth::check()) {
-			return redirect()->back();
+			$product = Product::where('slug','=',$slug)->get()->toArray();
+			
+			if (Cart::where('users_id','=',Auth::user()->id)->get()->toArray() == null) {
+				$productarraymake = [$product[0]['id']];
+				$jsonArray = json_encode($productarraymake);
+				Cart::create([
+					'cart'=>$jsonArray,
+					'users_id'=>Auth::user()->id
+					]);
+				return redirect()->back();
+			}else{
+				$cartt = Cart::where('users_id','=',Auth::user()->id)->first();
+				$cartArray = $cartt->toArray();
+				
+				$fillarray = json_decode($cartArray['cart']);
+				$fillarray[] = $product[0]['id'];
+				$cartt->cart = json_encode($fillarray);
+				$cartt->save();
+				return redirect()->back();
+			}
+			
+
+			
 		}else{
 			return redirect('auth/login');
 		}
 
+		
+	}
+	public function showCart()
+	{
 		
 	}
 

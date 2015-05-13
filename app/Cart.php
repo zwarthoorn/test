@@ -4,6 +4,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model {
 
-	//
+	protected $table = 'carts';
+
+	protected $fillable =[
+		'cart',
+		'users_id'
+	];
 
 }

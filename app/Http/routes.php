@@ -15,7 +15,7 @@ use App\User;
 
 Route::get('/', 'MainController@index');
 Route::get('/catagory/{slug}', 'MainController@catagory');
-Route::get('/cart/{slug}', 'MainController@putCart');
+
 Route::group(['middleware'=>'authAdmin'],function()
 {
 	Route::get('adminDashboard','Test2Controller@index');
@@ -55,6 +55,8 @@ Route::group(['middleware'=>'authUser'],function()
 	Route::post('account/email','UserInfoController@postChangeEmail');
 	Route::get('account/password','UserInfoController@ChangePassword');
 	Route::post('account/password','UserInfoController@PostChangePassword');
+	Route::get('/cart/{slug}', 'MainController@putCart');
+	Route::get('/cart', 'MainController@showCart');
 });
 
 Route::controllers([
