@@ -15,6 +15,7 @@ use App\User;
 
 Route::get('/', 'MainController@index');
 Route::get('/catagory/{slug}', 'MainController@catagory');
+Route::get('/brand/{slug}', 'MainController@brand');
 
 Route::group(['middleware'=>'authAdmin'],function()
 {
@@ -57,6 +58,8 @@ Route::group(['middleware'=>'authUser'],function()
 	Route::post('account/password','UserInfoController@PostChangePassword');
 	Route::get('/cart/{slug}', 'MainController@putCart');
 	Route::get('/cart', 'MainController@showCart');
+	Route::get('/cart/delitem/{slug}', 'MainController@delCart');
+	Route::get('/cart/fulldelete/{slug}', 'MainController@fullProductDelete');
 });
 
 Route::controllers([
