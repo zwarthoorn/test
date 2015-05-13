@@ -216,7 +216,7 @@
 											<div class="overlay-content">
 												<h2>&#8364;{{$laster['price']}}</h2>
 												<p>{{$laster['name']}}</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												<a href="/cart/{{$laster['slug']}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
 										</div>
 								</div>

@@ -15,7 +15,7 @@ use App\User;
 
 Route::get('/', 'MainController@index');
 Route::get('/catagory/{slug}', 'MainController@catagory');
-
+Route::get('/cart/{slug}', 'MainController@putCart');
 Route::group(['middleware'=>'authAdmin'],function()
 {
 	Route::get('adminDashboard','Test2Controller@index');

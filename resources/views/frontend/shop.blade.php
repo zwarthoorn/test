@@ -8,7 +8,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
-											<img src="/{{$laster['imgpath']}}" alt="" height="267" width="189" />
+											<img src="/{{$laster['imgpath']}}" alt="" height="256" width="189" />
 											<h2>&#8364;{{$laster['price']}}</h2>
 											<p>{{$laster['name']}}</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -17,7 +17,7 @@
 											<div class="overlay-content">
 												<h2>&#8364;{{$laster['price']}}</h2>
 												<p>{{$laster['name']}}</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												<a href="/cart/{{$laster['slug']}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
 										</div>
 								</div>

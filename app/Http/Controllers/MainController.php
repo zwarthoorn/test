@@ -4,7 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Catagory;
 use App\Product;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+
 use Auth;
 
 class MainController extends Controller {
@@ -26,9 +27,24 @@ class MainController extends Controller {
 		$catagoryclick = Catagory::where('slug','=',$slug)->get()->toArray();
 		$allCatagorys = Catagory::all()->toArray();
 		$products = Product::where('catagory_id','=',$catagoryclick[0]['id'])->get()->toArray();
+		if (Auth::check()) {
 
+			$userinfo = ['username'=>Auth::user()->name,'allC'=>$allCatagorys,'last'=>$products];
 
-		return view('frontend.shop',['last'=>$products,'allC'=>$allCatagorys]);
+			return view('frontend.shop', $userinfo);
+		}
+
+		return view('frontend.shop',['username'=>null,'last'=>$products,'allC'=>$allCatagorys]);
+	}
+	public function putCart($slug)
+	{
+		if (Auth::check()) {
+			return redirect()->back();
+		}else{
+			return redirect('auth/login');
+		}
+
+		
 	}
 
 }
