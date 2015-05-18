@@ -11,11 +11,15 @@
 |
 */
 use App\User;
+use App\Mail;
 
 
 Route::get('/', 'MainController@index');
 Route::get('/catagory/{slug}', 'MainController@catagory');
 Route::get('/brand/{slug}', 'MainController@brand');
+//Route::get('/pay', 'MolliePayController@index');
+
+Route::post('/niewsbrief', 'MainController@niewsbrief');
 
 Route::group(['middleware'=>'authAdmin'],function()
 {
@@ -29,6 +33,7 @@ Route::group(['middleware'=>'authAdmin'],function()
 	Route::resource('admin/catagory', 'CatagoryController');
 	Route::resource('admin/brand', 'BrandController');
 	Route::resource('admin/product', 'ProductController');
+	Route::resource('admin/niewsbrief','NiewsbriefController');
 });
 
 	Route::get('rankcheck',function ()

@@ -6,6 +6,8 @@ use App\Catagory;
 use App\Product;
 use App\Cart;
 use App\Brand;
+use App\Mail;
+use App\Http\Requests\MailForm;
 use Illuminate\Support\Facades\Request;
 
 use Auth;
@@ -91,8 +93,17 @@ class MainController extends Controller {
 			$allproducts[$i]['total'] = intval($allproducts[$i]['price']) * $value; 
 			$i++;
 		}
+		$btw = 21;
+		$total = 0;
+		$btwwaarde = 0;
+		foreach ($allproducts as $key => $value) {
+			$total = $value['total'] + $total;
+		}
+		$cartTotal = $total;
+		$btwwaarde = ($total/100)*$btw;
+		$total = $btwwaarde + $total;
 		$allCatagorys = Catagory::all()->toArray();
-		return view('frontend.cart',['username'=>Auth::user()->name,'allC'=>$allCatagorys,'cartuser'=>$allproducts]);
+		return view('frontend.cart',['username'=>Auth::user()->name,'allC'=>$allCatagorys,'cartuser'=>$allproducts,'btwwaarde'=>$btwwaarde,'totaal'=>$total,'carttotal'=>$cartTotal]);
 	}
 	public function delCart($slug)
 	{
@@ -142,6 +153,13 @@ class MainController extends Controller {
 		}
 		return view('frontend.shop',['username'=> null,'allC'=>$allCatagorys,'last'=>$brandproducts,'brands'=>$allBrands]);
 
+	}
+	public function niewsbrief(MailForm $mail)
+	{
+		Mail::create([
+			'email'=>$mail->get('email')
+			]);
+		return redirect('/');
 	}
 
 }

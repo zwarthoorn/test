@@ -33,7 +33,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> jdsieraden@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -90,9 +90,13 @@
 								<li><a href="/account"><i class="fa fa-user"></i>{{$username}}</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								@endif
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Contact Ticket</a></li>
 								<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								@if($username!= null)
+								<li><a href="/auth/logout"><i class="fa fa-lock"></i> logout</a></li>
+								@else
 								<li><a href="/auth/login"><i class="fa fa-lock"></i> Login</a></li>
+								@endif
 							</ul>
 						</div>
 					</div>
@@ -117,7 +121,7 @@
 								<li><a href="index.html" class="active">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
+                                        <li><a href="/allproducts">Products</a></li>
 										<li><a href="product-details.html">Product Details</a></li> 
 										<li><a href="checkout.html">Checkout</a></li> 
 										<li><a href="cart.html">Cart</a></li> 
@@ -692,7 +696,7 @@
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<p>Barendrecht Nederland</p>
 						</div>
 					</div>
 				</div>
@@ -707,22 +711,9 @@
 							<h2>Service</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Kom in contact</a></li>
 								<li><a href="#">Order Status</a></li>
-								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQ’s</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Quock Shop</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="#">Veel gestelde vragen</a></li>
 							</ul>
 						</div>
 					</div>
@@ -730,7 +721,7 @@
 						<div class="single-widget">
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Algemene voorwaarden</a></li>
 								<li><a href="#">Privecy Policy</a></li>
 								<li><a href="#">Refund Policy</a></li>
 								<li><a href="#">Billing System</a></li>
@@ -742,21 +733,19 @@
 						<div class="single-widget">
 							<h2>About Shopper</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Company Information</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Store Location</a></li>
-								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Bedrijfs informatie</a></li>
 								<li><a href="#">Copyright</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
+							<h2>Niewsbrief</h2>
+							<form action="/niewsbrief" class="searchform" method='post'>
+								<input type="text" name='email' placeholder="Your email address" />
+								  <input type="hidden" name="_token" value='{{ csrf_token() }}' />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+								<p>Krijg alle veranderingen en acties direct in uw email.</p>
 							</form>
 						</div>
 					</div>

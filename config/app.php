@@ -146,6 +146,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'Collective\Html\HtmlServiceProvider',
+		 'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
 
 	],
 
@@ -197,6 +198,7 @@ return [
 		'Tracker' 	=> 'PragmaRX\Tracker\Vendor\Laravel\Facade',
 		'Form' => 'Collective\Html\FormFacade',
       	'Html' => 'Collective\Html\HtmlFacade',
+      	'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
 
 	],
 
